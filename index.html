@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Погода</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <header style="display: flex; justify-content: flex-end; padding: 10px 20px; background: transparent; position: fixed; top: 0; right: 0; width: 100%; z-index: 1000;">
+    <button id="langToggleBtn" style="padding: 8px 16px; font-size: 1rem; border-radius: 20px; border: none; background: #4b6cb7; color: white; cursor: pointer; font-weight: 700; user-select: none;">
+      UA
+    </button>
+  </header>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+  
+
+
+
+
+  <div class="content">
+    <h1>WEATHER.PL</h1>
+    <div class="input-container">
+      <button id="geoBtn" title="Визначити місцезнаходження">📍</button>
+      <input type="text" id="cityInput" placeholder="Введіть місто" />
+      <button id="getWeatherBtn">Дізнатись погоду</button>
+    </div>
+    <div id="weatherResult">
+      <div id="weatherContent"></div>
+    </div>
+  </div>
+
+
+
+
+
+  
+
+  <script src="main.js"></script>
+</body>
+</html>

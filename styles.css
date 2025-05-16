@@ -1,0 +1,271 @@
+/* Ген стилі */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    transition: background 2s ease;
+    position: relative;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Бек градіент */
+.background-layer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    animation: gradientFlow 15s linear infinite;
+    background-size: 400% 400%;
+}
+
+.background-layer.visible {
+    opacity: 1;
+}
+
+/* Часи доби */
+body.morning {
+    animation: none !important;
+    background: linear-gradient(to top, #c9d6ff, #e2e2e2);
+    transition: background 2s ease;
+}
+
+body.day {
+    animation: none !important;
+    background: linear-gradient(to top, #a1c4fd, #c2e9fb);
+    transition: background 2s ease;
+}
+
+body.evening {
+    animation: none !important;
+    background: linear-gradient(to top, #fbc2eb, #a6c1ee);
+    transition: background 2s ease;
+}
+
+body.night {
+    animation: none !important;
+    background: linear-gradient(to top, #434343, #000000);
+    transition: background 2s ease;
+}
+
+/* Хуйня */
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #eee;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    padding-bottom: 8px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.temperature {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #eee;
+    text-align: center;
+    margin-top: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.city-header {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.weather-description {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #bbb;
+    margin: 4px 0 16px 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Кон кнопки і інпута */
+.input-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2rem;
+    align-items: center;
+    gap: 8px; 
+}
+
+/* Інпут */
+input {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #3a7bd5;
+    width: 200px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #00d2ff;
+    box-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
+}
+
+/* Батон пошуку */
+button {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+
+/* Гео */
+#geoBtn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    user-select: none;
+}
+
+#geoBtn:hover,
+#geoBtn:focus,
+#geoBtn:active {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Батон кнопки */
+#languageSelect {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#languageSelect:hover {
+    background: #4b6cb7;
+    color: white;
+    box-shadow: 0 4px 12px rgba(75, 108, 183, 0.5);
+}
+
+#languageSelect:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.7);
+    background: #3a549a;
+    color: white;
+}
+
+/* Єбуча картка */
+#weatherResult {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    min-width: 300px;
+    max-width: 450px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#weatherResult.show {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#weatherResult h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+#weatherResult p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Фейди */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Тип погоди */
+.weather-description {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6ba0ff, #4178d1);
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    box-shadow: 0 4px 8px rgba(65, 120, 209, 0.5);
+    margin: 0.5rem 0 1rem 0;
+    user-select: none;
+}
+
+/* header */
+.header {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
